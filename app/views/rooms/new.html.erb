@@ -1,0 +1,44 @@
+<h1>施設登録</h1>
+
+<% if @room.errors.any? %>
+  <div>
+    <ul>
+      <% @room.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: @room do |f| %>
+  <div class="field">
+    <p><%= f.label :name, "施設名" %></p>
+    <p><%= f.text_field :name %></p>
+  </div>
+
+  <div class="field">
+    <p><%= f.label :description, "施設詳細" %></p>
+    <p><%= f.text_area :description %></p>
+  </div>
+
+  <div class="field">
+    <p><%= f.label :price, "料金（/日）" %></p>
+    <p><%= f.number_field :price %></p>
+  </div>
+
+  <div class="field">
+    <p><%= f.label :address, "住所" %></p>
+    <p><%= f.text_field :address %></p>
+  </div>
+
+  <div class="field">
+    <p><%= f.label :image, "施設画像" %></p>
+    <p><%= f.file_field :image %></p>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "登録する" %>
+  </div>
+<% end %>
+
+<%= link_to "戻る", :back %>

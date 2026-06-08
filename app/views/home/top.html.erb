@@ -1,0 +1,10 @@
+<div class="search-section">
+  <h1>LUXURY STAY</h1>
+  <p style="color: #f0e6cc; margin-bottom: 30px;">最高の宿泊体験をあなたに</p>
+
+  <%= form_with url: search_rooms_path, method: :get, class: "search-form" do |f| %>
+    <%= f.select :area, [['東京', '東京'], ['大阪', '大阪'], ['京都', '京都'], ['札幌', '札幌']], include_blank: "--エリアを選択--" %>
+    <%= f.text_field :keyword, placeholder: "フリーワードで探す" %>
+    <%= f.submit "検索する" %>
+  <% end %>
+</div>

@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    attributes:
+      reservation:
+        check_in: 'チェックイン日'
+        check_out: 'チェックアウト日'
+        guests: '人数'
+  errors:
+    messages:
+      greater_than_or_equal_to: 'は%{count}以上の値にしてください'

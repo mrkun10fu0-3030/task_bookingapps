@@ -24,6 +24,37 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <% if user_signed_in? %>
+        <% if current_user.icon.attached? %>
+          <%= image_tag current_user.icon %>
+        <% else %>
+          <%= image_tag "default_icon.png" %>
+        <% end %>
+        <div class="dropdown">
+          <%= link_to current_user.name, "#" %>
+          <div class="dropdown-menu">
+            <%= link_to "アカウント", user_show_path %>
+            <%= link_to "アカウント情報編集", edit_user_registration_path %>
+            <%= link_to "プロフィール編集", edit_profile_path %>
+            <%= link_to "施設一覧", rooms_path %>
+            <%= link_to "予約一覧", reservations_path %>
+            <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete} %>
+          </div>
+        </div>
+      <% else %>
+        <%= link_to "ログイン", new_user_session_path %>
+        <%= link_to "新規登録", new_user_registration_path %>
+      <% end %>
+    </header>
+    <main>
+      <% if notice %>
+        <div class="notice"><%= notice %></div>
+      <% end %>
+      <% if  alert %>
+        <div class="alert"><%= alert %></div>
+      <% end %>
+      <%= yield %>
+    </main>
   </body>
 </html>

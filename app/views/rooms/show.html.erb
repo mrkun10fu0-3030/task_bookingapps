@@ -1,0 +1,14 @@
+<div class="room-detail">
+  <% if @room.image.attached? %>
+    <%= image_tag @room.image %>
+  <% else %>
+    <%= image_tag "default_room.png" %>
+  <% end %>
+
+  <h1><%= @room.name %></h1>
+  <p><%= @room.description %></p>
+  <p class="price">¥<%= @room.price %>/日</p>
+
+  <%= link_to "予約する", new_room_reservation_path(@room), class: "btn" %>
+  <%= link_to "戻る", :back, class: "btn" %>
+</div>
