@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   patch "users/update_profile", to: "users#update_profile", as: "update_profile"
   get "rooms/search", to: "rooms#search", as: "search_rooms"
   resources :rooms do
-    resources :reservations, only: [:new, :create] do
+    resources :reservations, only: [ :new, :create ] do
       collection do
         post :confirm
       end
     end
   end
-  resources :reservations, only: [:index]
+  resources :reservations, only: [ :index ]
 end

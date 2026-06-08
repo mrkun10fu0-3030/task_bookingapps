@@ -1,7 +1,5 @@
 <h1>施設一覧</h1>
-
 <%= link_to "施設を登録する", new_room_path, class: "btn" %>
-
 <% @rooms.each do |room| %>
   <div class="room-card">
     <% if room.image.attached? %>
