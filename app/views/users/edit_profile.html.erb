@@ -1,0 +1,35 @@
+<h1>プロフィール編集</h1>
+
+<% if @user.errors.any? %>
+  <div>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: @user, url: update_profile_path, method: :patch do |f| %>
+
+  <div class="field">
+    <p><%= f.label :icon, "アイコン画像" %></p>
+    <p><%= f.file_field :icon %></p>
+  </div>
+
+  <div class="field">
+    <p><%= f.label :name, "名前" %></p>
+    <p><%= f.text_field :name %></p>
+  </div>
+
+  <div class="field">
+    <p><%= f.label :bio, "自己紹介" %></p>
+    <p><%= f.text_area :bio %></p>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "更新する" %>
+  </div>
+<% end %>
+
+<%= link_to "戻る", :back %>

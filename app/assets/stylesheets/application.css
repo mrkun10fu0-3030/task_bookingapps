@@ -1,10 +1,335 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+/* リセット・基本設定 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  background-color: #f8f7f4;
+  color: #2c2c2c;
+  line-height: 1.8;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ヘッダー */
+header {
+  background-color: #0a1628;
+  padding: 15px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 2px solid #c9a84c;
+}
+
+header img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #c9a84c;
+}
+
+header a {
+  color: #f0e6cc;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-left: 20px;
+  transition: color 0.3s;
+}
+
+header a:hover {
+  color: #c9a84c;
+}
+
+/* ドロップダウン */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: #0a1628;
+  border: 1px solid #c9a84c;
+  min-width: 180px;
+  z-index: 200;
+  padding: 10px 0;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 13px;
+  color: #f0e6cc;
+  border-bottom: 1px solid #1a2a44;
+}
+
+.dropdown-menu a:hover {
+  background-color: #1a2a44;
+  color: #c9a84c;
+}
+
+/* メインコンテンツ */
+main, .container {
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  font-size: 28px;
+  color: #0a1628;
+  border-bottom: 2px solid #c9a84c;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-size: 22px;
+  color: #0a1628;
+  margin-bottom: 20px;
+}
+
+/* フォーム */
+.field {
+  margin-bottom: 20px;
+}
+
+.field p:first-child {
+  font-size: 13px;
+  color: #666;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="file"],
+textarea,
+select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #d0ccc4;
+  background-color: #fff;
+  font-size: 15px;
+  font-family: 'Georgia', serif;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #c9a84c;
+}
+
+textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+/* ボタン */
+input[type="submit"],
+button {
+  background-color: #0a1628;
+  color: #c9a84c;
+  border: 2px solid #c9a84c;
+  padding: 12px 35px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Georgia', serif;
+}
+
+input[type="submit"]:hover,
+button:hover {
+  background-color: #c9a84c;
+  color: #0a1628;
+}
+
+/* リンクボタン */
+.btn {
+  display: inline-block;
+  background-color: #0a1628;
+  color: #c9a84c;
+  border: 2px solid #c9a84c;
+  padding: 10px 25px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  transition: all 0.3s;
+  margin: 5px;
+}
+
+.btn:hover {
+  background-color: #c9a84c;
+  color: #0a1628;
+}
+
+/* 施設カード */
+.room-card {
+  background-color: #fff;
+  border: 1px solid #e0dbd0;
+  margin-bottom: 30px;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  transition: box-shadow 0.3s;
+}
+
+.room-card:hover {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.room-card img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.room-card-info {
+  flex: 1;
+}
+
+.room-card-info h3 {
+  font-size: 18px;
+  color: #0a1628;
+  margin-bottom: 8px;
+}
+
+.room-card-info p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.price {
+  color: #c9a84c;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* 施設詳細 */
+.room-detail img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  margin-bottom: 30px;
+}
+
+/* 予約カード */
+.reservation-card {
+  background-color: #fff;
+  border: 1px solid #e0dbd0;
+  margin-bottom: 30px;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.reservation-card img {
+  width: 180px;
+  height: 130px;
+  object-fit: cover;
+}
+
+/* エラーメッセージ */
+.error-messages {
+  background-color: #fff0f0;
+  border: 1px solid #e0a0a0;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+}
+
+.error-messages ul {
+  list-style: none;
+  color: #c0392b;
+  font-size: 14px;
+}
+
+/* トップページ検索 */
+.search-section {
+  background-color: #0a1628;
+  padding: 60px 20px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.search-section h1 {
+  color: #c9a84c;
+  border-bottom: 2px solid #c9a84c;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.search-form {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.search-form select,
+.search-form input {
+  width: 250px;
+  padding: 12px 15px;
+  border: 1px solid #c9a84c;
+  background-color: #0a1628;
+  color: #f0e6cc;
+  font-size: 14px;
+}
+
+.search-form input[type="submit"] {
+  background-color: #c9a84c;
+  color: #0a1628;
+  border: none;
+  padding: 12px 30px;
+  cursor: pointer;
+  letter-spacing: 2px;
+}
+
+.search-form input[type="submit"]:hover {
+  background-color: #f0e6cc;
+}
+
+/* フラッシュメッセージ */
+.notice {
+  background-color: #e8f4e8;
+  border: 1px solid #a0c8a0;
+  color: #2d6a2d;
+  padding: 12px 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.alert {
+  background-color: #fff0f0;
+  border: 1px solid #e0a0a0;
+  color: #c0392b;
+  padding: 12px 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}

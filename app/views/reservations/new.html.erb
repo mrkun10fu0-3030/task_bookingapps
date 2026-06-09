@@ -1,0 +1,35 @@
+<h1>予約入力</h1>
+
+<% if @reservation.errors.any? %>
+  <div>
+    <ul>
+      <% @reservation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<p>施設名: <%= @room.name %></p>
+<p>料金: <%= @room.price %>円/日</p>
+
+<%= form_with model: [@room, @reservation], url: confirm_room_reservations_path(@room), data: { turbo: false } do |f| %>
+  <div class="field">
+    <p><%= f.label :check_in, "チェックイン日" %></p>
+    <p><%= f.date_field :check_in %></p>
+  </div>
+
+  <div class="field">
+    <p><%= f.label :check_out, "チェックアウト日" %></p>
+    <p><%= f.date_field :check_out %></p>
+  </div>
+
+  <div class="field">
+    <p><%= f.label :guests, "人数" %></p>
+    <p><%= f.number_field :guests %></p>
+  </div>
+
+  <%= f.submit "確認する" %>
+<% end %>
+
+<%= link_to "戻る", :back %>

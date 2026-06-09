@@ -1,0 +1,25 @@
+ja:
+  activerecord:
+    attributes:
+      reservation:
+        check_in: "チェックイン日"
+        check_out: "チェックアウト日"
+        guests: "人数"
+  errors:
+    messages:
+      greater_than_or_equal_to: "は%{count}以上の値にしてください"
+  devise:
+    failure:
+      unauthenticated: "ログインしてください"
+      unconfirmed: "メールアドレスの確認が完了していません"
+      already_authenticated: "すでにログインしています"
+      invalid: "メールアドレスまたはパスワードが違います"
+      not_found_in_database: "メールアドレスまたはパスワードが違います"
+    registrations:
+      signed_up: "登録が完了しました"
+      updated: "情報を更新しました"
+    sessions:
+      signed_in: "ログインしました"
+      signed_out: "ログアウトしました"
+    passwords:
+      updated: "パスワードを変更しました"
